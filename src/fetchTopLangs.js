@@ -1,8 +1,8 @@
-import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+import { Octokit } from "octokit";
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
-async function fetcher() {
+async function fetchTopLangs() {
     let top_langs = {}
     const unwanted_langs = ['Procfile']
 
@@ -43,4 +43,4 @@ async function fetcher() {
     return top_langs;
 }
 
-module.exports = fetchTopLanguage;
+module.exports = fetchTopLangs;
