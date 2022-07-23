@@ -1,10 +1,12 @@
+const fs = require('fs');
+
 import fetchTopLangs from "../src/fetchTopLangs";
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
+
     try {
-        const topLangs = await fetchTopLangs()
-        res.send(topLangs)
+        res.json(await fetchTopLangs())
     } catch (err) {
         return res.send(renderError(err.message, err.secondaryMessage));
     }
